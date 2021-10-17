@@ -1,0 +1,7 @@
+[
+    {
+        "model-name": "Actor",
+        "resource-file": "actors.json",
+        "table-name": "actors"
+    }
+]
