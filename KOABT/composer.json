@@ -19,7 +19,7 @@
         "reliese/laravel": "^0.0.19"
     },
     "require-dev": {
-        "crestapps/laravel-code-generator": "^2.4",
+        "digitaldream/laracrud": "^4.0",
         "facade/ignition": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "kitloong/laravel-migrations-generator": "^5.0",
