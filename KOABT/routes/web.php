@@ -14,9 +14,7 @@ use App\Http\Controllers\ActorsController;
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', 'PlaybillController@index');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

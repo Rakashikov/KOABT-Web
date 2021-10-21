@@ -14,6 +14,8 @@ use App\Http\Requests\Playbill\Store;
 use App\Http\Requests\Playbill\Edit;
 use App\Http\Requests\Playbill\Update;
 use App\Http\Requests\Playbill\Destroy;
+use stdClass;
+use Carbon;
 
 
 /**
@@ -32,7 +34,20 @@ class PlaybillController extends Controller
      */
     public function index(Index $request)
     {
-        return view('pages.playbill.index', ['records' => Playbill::paginate(10)]);
+        $res = [];
+        $playbills = Playbill::orderBy('date_and_time')->get();
+        foreach ($playbills as $playbill_key => $playbill){
+            if($playbill->date_and_tile < date('Y-m-d',time())) break;
+            $tmp_playbill = new stdClass;
+            $tmp_playbill-> date = $playbill->date_and_time;
+            $tmp_playbill-> event = Event::where("id", $playbill->event_id)->get();
+            $tmp_playbill-> actors = Cast::where("id", $playbill->cast_id)->get();
+            $res[$playbill_key] = $tmp_playbill;
+        }
+
+        dd($res);
+        
+        return view('main', compact('playbills'));
     }    /**
      * Display the specified resource.
      *
