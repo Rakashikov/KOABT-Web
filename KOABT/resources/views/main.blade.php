@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-
-<main-component></main-component>
+<main-component :playbill='{{json_encode($res)}}'></main-component>
 @endsection
