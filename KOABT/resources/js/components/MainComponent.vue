@@ -5,10 +5,10 @@
         </h1>
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+                <div class="card" v-for="item in playbill" :key="item.date">
+                    <div class="card-header">{{item.title}}</div>
                     <div class="card-body">
-                        I'm an example component.
+                        {{item.time}}
                     </div>
                 </div>
             </div>
