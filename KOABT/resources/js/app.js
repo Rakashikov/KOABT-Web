@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('main-component', require('./components/MainComponent.vue').default);
+Vue.component('playbillcard-component', require('./components/PlaybillCardComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

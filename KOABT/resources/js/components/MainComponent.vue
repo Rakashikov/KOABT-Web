@@ -6,10 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card" v-for="item in playbill" :key="item.date">
-                    <div class="card-header">{{item.title}}</div>
-                    <div class="card-body">
-                        {{item.time}}
-                    </div>
+                    <playbillcard-component :playbill="item"></playbillcard-component>
                 </div>
             </div>
         </div>
@@ -22,7 +19,7 @@
             // console.log('Component mounted.')
         },
         props: {
-            playbill: Array
+            playbill: Object
         }
     }
 </script>
