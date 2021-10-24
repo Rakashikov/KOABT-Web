@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ActorsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +16,10 @@ use App\Http\Controllers\ActorsController;
 Route::get('/', 'PlaybillController@index');
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/actorPlaybill', 'ActorPlaybillController@index')->name('actorPlaybill');
 
 Route::resource('actors','ActorController');
 
