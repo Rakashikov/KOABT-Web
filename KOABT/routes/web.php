@@ -21,33 +21,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/actorPlaybill', 'ActorPlaybillController@index')->name('actorPlaybill');
 
-Route::resource('actors','ActorController');
-
-Route::resource('actorroles','ActorRoleController');
-
-Route::resource('actorschangeinformations','ActorsChangeInformationController');
-
-Route::resource('administrations','AdministrationController');
-
-Route::resource('administrativepositions','AdministrativePositionController');
-
-Route::resource('casts','CastController');
-
-Route::resource('eventcategories','EventCategoryController');
-
-Route::resource('events','EventController');
-
-Route::resource('playbills','PlaybillController');
-
-Route::resource('positions','PositionController');
-
-Route::resource('rehearsals','RehearsalController');
-
-Route::resource('roles','RoleController');
-
-Route::resource('spectaclesroles','SpectaclesRoleController');
-
-Route::resource('troupes','TroupeController');
-
-Route::resource('typesofrehearsals','TypesOfRehearsalController');
-
