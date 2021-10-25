@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PlaybillController@index');
+Route::get('/', 'PlaybillController@index')->name('main');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/rehearsals', 'RehearsalController@index')->name('rehearsals');
 
 Route::get('/actorPlaybill', 'ActorPlaybillController@index')->name('actorPlaybill');
 

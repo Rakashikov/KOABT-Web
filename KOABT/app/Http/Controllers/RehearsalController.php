@@ -8,6 +8,9 @@ use App\Models\Rehearsal;
 use App\Models\TypesOfRehearsal;
 use App\Models\Troupe;
 use App\Models\Cast;
+use App\Models\ActorRole;
+use App\Models\Role;
+use App\Models\Actor;
 use App\Http\Requests\Rehearsals\Index;
 use App\Http\Requests\Rehearsals\Show;
 use App\Http\Requests\Rehearsals\Create;
@@ -15,6 +18,8 @@ use App\Http\Requests\Rehearsals\Store;
 use App\Http\Requests\Rehearsals\Edit;
 use App\Http\Requests\Rehearsals\Update;
 use App\Http\Requests\Rehearsals\Destroy;
+use stdClass;
+use Carbon\Carbon;
 
 
 /**
@@ -33,7 +38,25 @@ class RehearsalController extends Controller
      */
     public function index(Index $request)
     {
-        return view('pages.rehearsals.index', ['records' => Rehearsal::paginate(10)]);
+        $res = [];
+        $rehearsals = Rehearsal::orderBy('date_and_time')->get();
+        foreach ($rehearsals as $rehearsal_key => $rehearsal){
+            if(Carbon::parse($rehearsal->date_and_time)->toDateTimeString() < Carbon::now()->toDateTimeString()) continue;
+            $tmp_rehearsals = new stdClass;
+            $tmp_rehearsals-> date = $rehearsal->date_and_time;
+            $tmp_rehearsals-> type = TypesOfRehearsal::where("id", $rehearsal->type_id)->value("name");
+            $tmp_rehearsals-> troupe = Troupe::where("id", $rehearsal->troupe_id)->value("name");
+            $tmp_rehearsals-> cast = [];
+            foreach(Cast::where("id", $rehearsal->actors_ids)->get() as $cast_key => $cast){
+                $tmp_cast = new stdClass;
+                $tmp_aroles = ActorRole::where("id", $cast->aroles_id)->get();
+                $tmp_cast-> role = Role::where("id", $tmp_aroles[0]->role_id)->value('character_name');
+                $tmp_cast-> actor = Actor::where("id", $tmp_aroles[0]->actor_id)->value('last_name');
+                $tmp_rehearsals->cast[$cast_key] = $tmp_cast;
+            }
+            $res[$rehearsal_key] = $tmp_rehearsals;
+        }
+        return view('rehearsals', compact('res'));
     }    /**
      * Display the specified resource.
      *

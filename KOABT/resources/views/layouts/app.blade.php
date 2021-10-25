@@ -33,11 +33,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if (Route::has('register'))
+                        @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('rehearsals') }}">{{ __('Репетиции') }}</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('actorPlaybill') }}">{{ __('Расписание') }}</a>
                         </li>
-                        @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->
