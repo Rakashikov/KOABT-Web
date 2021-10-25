@@ -3,7 +3,7 @@
         <a class="card-body text-decoration-none row align-items-center cursor-pointer text-dark" 
         data-toggle="collapse" :href="'#collapse'+colapseTag" aria-expanded="false" :aria-controls="'collapse'+colapseTag">
             <div class="playbill_date border-right px-3" style="width: 160px">
-                <div class=" playbill_date_day_month row mx-auto d-flex justify-content-around align-items-center">
+                <div class=" playbill_date_day_month row mx-auto d-flex justify-content-center align-items-center">
                     <div class="playbill_date_day h2 font-weight-bold px-1 m-0">
                         {{ day }}
                     </div>

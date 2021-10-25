@@ -60047,7 +60047,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  " playbill_date_day_month row mx-auto d-flex justify-content-around align-items-center"
+                  " playbill_date_day_month row mx-auto d-flex justify-content-center align-items-center"
               },
               [
                 _c(
