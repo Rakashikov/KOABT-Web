@@ -1960,7 +1960,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {// console.log('Component mounted.')
   },
   props: {
-    playbill: Object
+    playbill: Array
   }
 });
 
@@ -2023,6 +2023,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2035,10 +2041,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       day: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.date).format("D"),
-      month: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.day).format("LLLL").split(",")[1].split(" ")[2],
+      month: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.date).format("LLLL").split(",")[1].split(" ")[2],
       calendarDay: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.date).format("LLLL").split(",")[0],
       dayTime: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.date).format("LLLL").split(",")[2],
-      colapseTag: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.date).format("MMDDYYHH") + this.playbill.title.replace(" ", "")
+      colapseTag: moment__WEBPACK_IMPORTED_MODULE_0___default()(this.playbill.date).format("MMDDYYHH") + this.playbill.title.replaceAll(" ", "")
     };
   }
 });
@@ -60041,7 +60047,7 @@ var render = function() {
               "div",
               {
                 staticClass:
-                  " playbill_date_day_month row mx-auto d-flex justify-content-between align-items-center"
+                  " playbill_date_day_month row mx-auto d-flex justify-content-around align-items-center"
               },
               [
                 _c(
@@ -60106,13 +60112,19 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("div", { staticClass: "playbill-info px-3" }, [
-          _c("div", { staticClass: "playbill-title h3" }, [
+        _c("div", { staticClass: "playbill-info px-3 text-center" }, [
+          _c("div", { staticClass: "playbill-title h3 text-justify" }, [
             _vm._v(_vm._s(_vm.playbill.title))
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "playbill-time h5" }, [
-            _vm._v(_vm._s(_vm.playbill.time))
+          _c("div", { staticClass: "playbill-time-info row m-0" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "playbill-time h5 text-center m-0 ml-1" },
+              [_vm._v(_vm._s(_vm.playbill.time))]
+            )
           ])
         ])
       ]
@@ -60125,7 +60137,7 @@ var render = function() {
         attrs: { id: "collapse" + _vm.colapseTag }
       },
       [
-        _vm._m(0),
+        _vm._m(1),
         _vm._v(" "),
         _vm._l(_vm.playbill.cast, function(cast) {
           return _c("div", { key: cast.role, staticClass: "cast-card" }, [
@@ -60144,6 +60156,17 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-0 d-flex align-items-center" }, [
+      _c("img", {
+        staticStyle: { height: "16px" },
+        attrs: { src: "img/clock.svg" }
+      })
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -72698,8 +72721,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! N:\Fork\KOABT\KOABT\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! N:\Fork\KOABT\KOABT\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Fork\KOABT-Web\KOABT\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Fork\KOABT-Web\KOABT\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

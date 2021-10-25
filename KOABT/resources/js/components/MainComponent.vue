@@ -19,7 +19,7 @@
             // console.log('Component mounted.')
         },
         props: {
-            playbill: Object
+            playbill: Array
         }
     }
 </script>
