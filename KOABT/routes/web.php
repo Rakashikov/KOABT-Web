@@ -21,5 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/rehearsals', 'RehearsalController@index')->name('rehearsals');
 
-Route::get('/actorPlaybill', 'ActorPlaybillController@index')->name('actorPlaybill');
+Route::get('/actor_playbill', 'ActorPlaybillController@index')->name('actorPlaybill');
 

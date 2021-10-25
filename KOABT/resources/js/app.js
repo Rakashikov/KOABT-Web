@@ -24,6 +24,8 @@ Vue.component('main-component', require('./components/MainComponent.vue').defaul
 Vue.component('playbillcard-component', require('./components/PlaybillCardComponent.vue').default);
 Vue.component('rehearsals-component', require('./components/RehearsalsComponent.vue').default);
 Vue.component('rehearsalscard-component', require('./components/RehearsalsCardComponent.vue').default);
+Vue.component('actorplaybill-component', require('./components/ActorPlaybillComponent.vue').default);
+Vue.component('actorplaybillcard-component', require('./components/ActorPlaybillCardComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
