@@ -23,13 +23,13 @@ class Administration extends Model
     /**
     * Mass assignable columns
     */
-    protected $fillable=['e-mail',
+    protected $fillable=['email',
 'position_id',
 'first_name',
 'middle_name',
 'last_name',
 'phone',
-'e-mail'];
+'email'];
 
     /**
     * Date time columns.

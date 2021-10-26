@@ -13,6 +13,7 @@ use App\Http\Requests\Administrations\Store;
 use App\Http\Requests\Administrations\Edit;
 use App\Http\Requests\Administrations\Update;
 use App\Http\Requests\Administrations\Destroy;
+use stdClass;
 
 
 /**
@@ -31,7 +32,20 @@ class AdministrationController extends Controller
      */
     public function index(Index $request)
     {
-        return view('pages.administrations.index', ['records' => Administration::paginate(10)]);
+        $res = [];
+        $administrations = Administration::get();
+        foreach ($administrations as $administration_key => $administration){
+            $tmp_administration = new stdClass;
+            $tmp_administration -> position = AdministrativePosition::where("id", $administration->position_id)->value("name");
+            $tmp_administration -> first_name = $administration->first_name;
+            $tmp_administration -> last_name = $administration->last_name;
+            $tmp_administration -> middle_name = $administration->middle_name;
+            $tmp_administration -> phone = $administration->phone;
+            $tmp_administration -> email = $administration->email;
+            array_push($res, $tmp_administration);
+        }
+        // dd($res);
+        return view('administrations', compact('res'));
     }    /**
      * Display the specified resource.
      *

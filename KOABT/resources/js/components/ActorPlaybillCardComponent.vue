@@ -45,7 +45,8 @@
                 v-for="cast in playbill.cast"
                 :key="cast.role"
             >
-                {{ cast.role }} : {{ cast.actor }}
+            <div class="cast-info font-weight-bold" v-if="cast.is_user">{{ cast.role }} : {{ cast.actor }}</div>
+            <div class="cast-info" v-if="!cast.is_user">{{ cast.role }} : {{ cast.actor }}</div>
             </div>
         </div>
     </div>

@@ -19,7 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/error', function () {
+    return view('error');
+}) -> name('error');
+
 Route::get('/rehearsals', 'RehearsalController@index')->name('rehearsals');
 
 Route::get('/actor_playbill', 'ActorPlaybillController@index')->name('actorPlaybill');
+
+Route::get('/administrations', 'AdministrationController@index')->name('administrations');
 

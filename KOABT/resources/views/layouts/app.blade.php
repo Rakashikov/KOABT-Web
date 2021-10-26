@@ -41,6 +41,9 @@
                             <a class="nav-link" href="{{ route('actorPlaybill') }}">{{ __('Расписание') }}</a>
                         </li>
                         @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('administrations') }}">{{ __('Администрация театра') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

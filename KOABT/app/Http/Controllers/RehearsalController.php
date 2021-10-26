@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Rehearsal;
 use App\Models\TypesOfRehearsal;
 use App\Models\Troupe;
@@ -56,6 +57,7 @@ class RehearsalController extends Controller
             }
             $res[$rehearsal_key] = $tmp_rehearsals;
         }
+        if(Auth::id() == null) return redirect()->route('error');
         return view('rehearsals', compact('res'));
     }    /**
      * Display the specified resource.

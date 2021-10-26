@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Уведомление') }}</div>
+                <div class="card-header">{{ __('Ошибка') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Вы успешно вошли в систему!') }}
+                    {{ __('Вы не имеете доступ к данной ссылке!') }}
                 </div>
             </div>
         </div>

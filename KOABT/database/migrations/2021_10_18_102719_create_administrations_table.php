@@ -20,7 +20,7 @@ class CreateAdministrationsTable extends Migration
             $table->string('middle_name', 50)->nullable();
             $table->string('last_name', 50);
             $table->string('phone', 50)->nullable();
-            $table->string('e-mail', 50)->nullable();
+            $table->string('email', 50)->nullable();
         });
     }
 
