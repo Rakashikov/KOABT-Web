@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::get('/actor_playbill', 'ActorPlaybillController@index')->name('actorPlayb
 
 Route::get('/administrations', 'AdministrationController@index')->name('administrations');
 
+Route::get('/change-password', 'ProfileController@index')->name('change-password');
+Route::post('/change-password', 'ProfileController@store')->name('change.password');
